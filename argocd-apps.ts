@@ -71,9 +71,6 @@ export default (gin: Gin) => {
       project: "default",
       type: "git",
       url: "ssh://git@github.com/NiklasRosenstein/argocd-testing.git",
-      sshPrivateKey: SecretValue.of(
-        new TextDecoder().decode(Deno.readFileSync("./deploy")),
-      ),
     },
   });
 
