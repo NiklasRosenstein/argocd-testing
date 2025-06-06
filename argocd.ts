@@ -1,8 +1,9 @@
 import { Gin, SecretValue } from "jsr:@gin/core";
+import { HelmOptions } from "jsr:@gin/helm-v1alpha1";
 import { ArgoCDDeployment } from "jsr:@gin/argocd-v1alpha1";
 import { Repository } from "jsr:@gin/argocd-v1alpha1/types";
 
-new Gin().run((gin) => {
+new Gin().withOptions<HelmOptions>({pkg: "@gin/helm-v1alpha1", cacheDir: "/tmp/gin"}).run((gin) => {
   gin.emit<ArgoCDDeployment>({
     apiVersion: "argocd.gin.jsr.io/v1alpha1",
     kind: "ArgoCDDeployment",
