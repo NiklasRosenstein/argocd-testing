@@ -1,26 +1,24 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@gin/argocd-v1alpha1@*": "0.1.7",
+    "jsr:@gin/argocd-v1alpha1@*": "0.2.0",
     "jsr:@gin/core@*": "0.1.16",
     "jsr:@gin/core@~0.1.15": "0.1.16",
     "jsr:@gin/core@~0.1.16": "0.1.16",
     "jsr:@gin/helm-v1alpha1@*": "0.1.6",
     "jsr:@gin/helm-v1alpha1@~0.1.6": "0.1.6",
-    "jsr:@std/assert@1": "1.0.13",
     "jsr:@std/assert@^1.0.13": "1.0.13",
     "jsr:@std/cli@^1.0.19": "1.0.19",
     "jsr:@std/crypto@^1.0.5": "1.0.5",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
-    "jsr:@std/internal@^1.0.6": "1.0.8",
     "jsr:@std/path@^1.1.0": "1.1.0",
     "jsr:@std/regexp@^1.0.1": "1.0.1",
     "jsr:@std/yaml@^1.0.7": "1.0.7",
     "npm:stacktracey@^2.1.8": "2.1.8"
   },
   "jsr": {
-    "@gin/argocd-v1alpha1@0.1.7": {
-      "integrity": "3bc2e4d7ac8411a3452619cf016457772690b17a7a55ad4c6ea460095a37195b",
+    "@gin/argocd-v1alpha1@0.2.0": {
+      "integrity": "e618dd2f895197a367307ed9fb957cd9972f7a41adfb5127dfa3b415acaf9328",
       "dependencies": [
         "jsr:@gin/core@~0.1.16",
         "jsr:@gin/helm-v1alpha1@~0.1.6"
@@ -29,7 +27,7 @@
     "@gin/core@0.1.16": {
       "integrity": "a0b8bf5fb62a3fe5644e9fc6fa6bbf3f1fd6c8e4bd2568051cd665cbd2c95eff",
       "dependencies": [
-        "jsr:@std/assert@^1.0.13",
+        "jsr:@std/assert",
         "jsr:@std/cli",
         "jsr:@std/crypto",
         "jsr:@std/encoding",
@@ -42,17 +40,14 @@
       "integrity": "92818978031107c7af994c01e7a000dc7fc6ea6392fb67549221f0f504095a54",
       "dependencies": [
         "jsr:@gin/core@~0.1.15",
-        "jsr:@std/assert@^1.0.13",
+        "jsr:@std/assert",
         "jsr:@std/crypto",
         "jsr:@std/path",
         "jsr:@std/yaml"
       ]
     },
     "@std/assert@1.0.13": {
-      "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29",
-      "dependencies": [
-        "jsr:@std/internal"
-      ]
+      "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29"
     },
     "@std/cli@1.0.19": {
       "integrity": "b3601a54891f89f3f738023af11960c4e6f7a45dc76cde39a6861124cba79e88"
@@ -62,9 +57,6 @@
     },
     "@std/encoding@1.0.10": {
       "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
-    },
-    "@std/internal@1.0.8": {
-      "integrity": "fc66e846d8d38a47cffd274d80d2ca3f0de71040f855783724bb6b87f60891f5"
     },
     "@std/path@1.1.0": {
       "integrity": "ddc94f8e3c275627281cbc23341df6b8bcc874d70374f75fec2533521e3d6886"
@@ -109,7 +101,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@1"
+      "jsr:@gin/argocd-v1alpha1@0.2"
     ]
   }
 }

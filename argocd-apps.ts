@@ -2,7 +2,7 @@
  * Defines ArgoCD projects, repositories and applications.
  */
 
-import { Repository } from "jsr:@gin/argocd-v1alpha1/types";
+import { Repository, Application } from "jsr:@gin/argocd-v1alpha1/crds";
 import { Gin, SecretValue } from "jsr:@gin/core";
 
 export default (gin: Gin) => {
@@ -27,7 +27,7 @@ export default (gin: Gin) => {
     },
   });
 
-  gin.emit({
+  gin.emit<Application>({
     apiVersion: "argoproj.io/v1alpha1",
     kind: "Application",
     metadata: {
@@ -57,7 +57,7 @@ export default (gin: Gin) => {
     },
   });
 
-  gin.emit({
+  gin.emit<Application>({
     apiVersion: "argoproj.io/v1alpha1",
     kind: "Application",
     metadata: {
