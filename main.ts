@@ -14,6 +14,10 @@ if (import.meta.main) {
   const pipeline: (gin: Gin) => Promise<void> | void = await import(
     `./${script}.ts`
   ).then((m) => m.default);
-  console.warn(`Running Gin pipeline}`, pipeline);
+  if (pipeline === undefined || typeof pipeline !== "function") {
+    throw new Error(
+      `The script "${script}.ts" does not export a default function.`,
+    );
+  }
   await gin.run(pipeline);
 }

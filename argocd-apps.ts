@@ -47,11 +47,43 @@ export default (gin: Gin) => {
           name: "gin-v1",
           parameters: [
             { name: "script", string: "main.ts" },
-            { name: "args:", array: ["argocd"] },
-          ]
-        }
-      }
-    }
-  })
+            { name: "args", array: ["argocd"] },
+            { name: "deno_allow_write", array: ["/tmp/gin"] },
+            { name: "deno_allow_read", array: ["/tmp/gin"] },
+            { name: "deno_allow_run", array: ["helm"] },
+          ],
+        },
+      },
+    },
+  });
 
-}
+  gin.emit({
+    apiVersion: "argoproj.io/v1alpha1",
+    kind: "Application",
+    metadata: {
+      name: "argocd-apps",
+      namespace: "argocd",
+    },
+    spec: {
+      project: "default",
+      destination: {
+        server: "https://kubernetes.default.svc",
+      },
+      source: {
+        repoURL: "ssh://git@github.com/NiklasRosenstein/argocd-testing.git",
+        targetRevision: "HEAD",
+        path: ".",
+        plugin: {
+          name: "gin-v1",
+          parameters: [
+            { name: "script", string: "main.ts" },
+            { name: "args", array: ["argocd-apps"] },
+            { name: "deno_allow_write", array: ["/tmp/gin"] },
+            { name: "deno_allow_read", array: ["/tmp/gin", "./deploy"] },
+            { name: "deno_allow_run", array: ["helm"] },
+          ],
+        },
+      },
+    },
+  });
+};
