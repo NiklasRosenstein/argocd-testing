@@ -51,7 +51,7 @@ new Gin().withOptions<HelmOptions>({pkg: "@gin/helm-v1alpha1", cacheDir: "/tmp/g
 
         // Configuure the ingress for the ArgoCD server.
         ingress: {
-          enabled: true,
+          enabled: false,
           ingressClassName: "nginx",
           hostname: "argocd.internal",
         },
