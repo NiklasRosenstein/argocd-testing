@@ -1,9 +1,11 @@
-import { Gin, SecretValue } from "jsr:@gin/core";
-import { HelmOptions } from "jsr:@gin/helm-v1alpha1";
-import { ArgoCDDeployment } from "jsr:@gin/argocd-v1alpha1";
-import { Repository } from "jsr:@gin/argocd-v1alpha1/types";
+/**
+ * Defines the ArgoCD deployment.
+ */
 
-new Gin().withOptions<HelmOptions>({pkg: "@gin/helm-v1alpha1", cacheDir: "/tmp/gin"}).run((gin) => {
+import { Gin } from "jsr:@gin/core";
+import { ArgoCDDeployment } from "jsr:@gin/argocd-v1alpha1";
+
+export default (gin: Gin) => {
   gin.emit<ArgoCDDeployment>({
     apiVersion: "argocd.gin.jsr.io/v1alpha1",
     kind: "ArgoCDDeployment",
@@ -25,7 +27,8 @@ new Gin().withOptions<HelmOptions>({pkg: "@gin/helm-v1alpha1", cacheDir: "/tmp/g
         // Configure the admin user credentials. You may hardcode a bcrypt hash here, or load a password
         // from a `@gin/core` {@link SecretProvider} and encrypt it with `jsr:@stdext/crypto/hash/bcrypt`.
         adminPassword: {
-          bcryptHash: "$2b$12$1ykn5sGxWBPnDs89/pNukOFdRZ2oC86CvoJj1880mmH0GwbnA5Z2q", // "password"
+          bcryptHash:
+            "$2b$12$1ykn5sGxWBPnDs89/pNukOFdRZ2oC86CvoJj1880mmH0GwbnA5Z2q", // "password"
         },
 
         // Configure SSH host keys here that ArgoCD will trust. You can get those with `ssh-keyscan $HOST 2>/dev/null`.
@@ -77,23 +80,4 @@ new Gin().withOptions<HelmOptions>({pkg: "@gin/helm-v1alpha1", cacheDir: "/tmp/g
       },
     },
   });
-
-  gin.emit<Repository>({
-    apiVersion: "v1",
-    kind: "Secret",
-    metadata: {
-      name: "my-repo",
-      namespace: "argocd",
-      labels: {
-        "argocd.argoproj.io/secret-type": "repository",
-      },
-    },
-    stringData: {
-      name: "my-repo",
-      project: "default",
-      type: "git",
-      url: "ssh://git@github.com/NiklasRosenstein/argocd-testing.git",
-      sshPrivateKey: SecretValue.of(new TextDecoder().decode(Deno.readFileSync("./deploy"))),
-    },
-  });
-});
+};
