@@ -5,6 +5,8 @@
 import { Application, Repository } from "jsr:@gin/argocd-v1alpha1/crds";
 import { Gin, SecretValue } from "jsr:@gin/core";
 
+const REPOSITORY = "https://github.com/NiklasRosenstein/argocd-testing.git"
+
 interface GinApplication {
   name: string;
   deno?: {
@@ -28,7 +30,7 @@ function createApplication(app: GinApplication): Application {
         server: "https://kubernetes.default.svc",
       },
       source: {
-        repoURL: "ssh://git@github.com/NiklasRosenstein/argocd-testing.git",
+        repoURL: REPOSITORY,
         targetRevision: "HEAD",
         path: ".",
         plugin: {
@@ -70,7 +72,7 @@ export default (gin: Gin) => {
       name: "my-repo",
       project: "default",
       type: "git",
-      url: "ssh://git@github.com/NiklasRosenstein/argocd-testing.git",
+      url: REPOSITORY,
     },
   });
 
