@@ -1,9 +1,11 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@gin/argocd-v1alpha1@*": "0.2.3",
     "jsr:@gin/argocd-v1alpha1@~0.2.3": "0.2.3",
     "jsr:@gin/core@~0.1.18": "0.1.19",
     "jsr:@gin/core@~0.1.19": "0.1.19",
+    "jsr:@gin/helm-v1alpha1@*": "0.1.10",
     "jsr:@gin/helm-v1alpha1@~0.1.10": "0.1.10",
     "jsr:@gin/helm-v1alpha1@~0.1.6": "0.1.10",
     "jsr:@std/assert@^1.0.13": "1.0.13",
@@ -19,7 +21,7 @@
     "@gin/argocd-v1alpha1@0.2.3": {
       "integrity": "41f138720b2388228559ee8df86a9a7ae02f316c3fa0d164ea091bdc41818b80",
       "dependencies": [
-        "jsr:@gin/argocd-v1alpha1",
+        "jsr:@gin/argocd-v1alpha1@~0.2.3",
         "jsr:@gin/core@~0.1.18",
         "jsr:@gin/helm-v1alpha1@~0.1.6"
       ]
