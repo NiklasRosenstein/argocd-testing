@@ -1,8 +1,7 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@gin/argocd-v1alpha1@*": "0.3.3",
-    "jsr:@gin/argocd-v1alpha1@~0.3.3": "0.3.3",
+    "jsr:@gin/argocd-v1alpha1@~0.3.4": "0.3.4",
     "jsr:@gin/core@0.2": "0.2.2",
     "jsr:@gin/core@~0.2.1": "0.2.1",
     "jsr:@gin/core@~0.2.2": "0.2.2",
@@ -18,13 +17,8 @@
     "npm:stacktracey@^2.1.8": "2.1.8"
   },
   "jsr": {
-    "@gin/argocd-v1alpha1@0.3.3": {
-      "integrity": "d11a1b4663ba72bd52663e6a1a94c4afbc1b98f1492792ebdbe040b8f0d95cf7",
-      "dependencies": [
-        "jsr:@gin/argocd-v1alpha1@~0.3.3",
-        "jsr:@gin/core@0.2",
-        "jsr:@gin/helm-v1alpha1@0.2"
-      ]
+    "@gin/argocd-v1alpha1@0.3.4": {
+      "integrity": "bc56f4ab52243b067cfe4180bdaadcbc7e9fa4d92e69611adbf8b68083e02ef4"
     },
     "@gin/core@0.2.1": {
       "integrity": "130b9e3120e85c74c6d873f758a2f852fe027e85caf07b3ec01361ef9250e1e3",
@@ -112,7 +106,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@gin/argocd-v1alpha1@~0.3.3",
+      "jsr:@gin/argocd-v1alpha1@~0.3.4",
       "jsr:@gin/core@~0.2.2",
       "jsr:@gin/helm-v1alpha1@0.2"
     ]
