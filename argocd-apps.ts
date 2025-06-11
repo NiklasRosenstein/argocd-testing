@@ -7,22 +7,22 @@ import { Gin } from "@gin/core";
 
 const REPOSITORY = "https://github.com/NiklasRosenstein/argocd-testing.git";
 
-export default (gin: Gin) => {
-  gin.emit(GitRepository({
-    name: "my-repo",
-    project: "default",
-    url: REPOSITORY,
-  }));
-  gin.emit(GinApplication({
-    name: "argocd",
-    script: "main.ts",
-    args: ["argocd"],
-    repository: REPOSITORY,
-  }));
-  gin.emit(GinApplication({
-    name: "argocd-apps",
-    script: "main.ts",
-    repository: REPOSITORY,
-    args: ["argocd-apps"],
-  }));
-};
+new Gin().run((gin) => {
+  gin.emit(
+    GitRepository({ name: "my-repo", project: "default", url: REPOSITORY }),
+  );
+  gin.emit(
+    GinApplication({
+      name: "argocd",
+      script: "argocd.ts",
+      repository: REPOSITORY,
+    }),
+  );
+  gin.emit(
+    GinApplication({
+      name: "argocd-apps",
+      script: "argocd-apps.ts",
+      repository: REPOSITORY,
+    }),
+  );
+});

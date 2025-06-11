@@ -5,7 +5,7 @@
 import { Gin } from "@gin/core";
 import { ArgoCDDeployment } from "@gin/argocd-v1alpha1";
 
-export default (gin: Gin) => {
+new Gin().run((gin) => {
   gin.emit<ArgoCDDeployment>({
     apiVersion: "argocd.gin.jsr.io/v1alpha1",
     kind: "ArgoCDDeployment",
@@ -80,4 +80,4 @@ export default (gin: Gin) => {
       },
     },
   });
-};
+});
