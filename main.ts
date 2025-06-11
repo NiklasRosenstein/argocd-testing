@@ -1,5 +1,5 @@
-import { Gin } from "jsr:@gin/core";
-import { HelmOptions } from "jsr:@gin/helm-v1alpha1";
+import { Gin } from "@gin/core";
+import { HelmOptions } from "@gin/helm-v1alpha1";
 
 export const gin = new Gin()
   // Use a directory outside of the CWD to avoid loosing the cache.

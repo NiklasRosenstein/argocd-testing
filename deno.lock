@@ -1,15 +1,11 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@gin/argocd-v1alpha1@*": "0.2.0",
     "jsr:@gin/argocd-v1alpha1@~0.2.3": "0.2.3",
-    "jsr:@gin/core@*": "0.1.19",
-    "jsr:@gin/core@~0.1.15": "0.1.16",
-    "jsr:@gin/core@~0.1.16": "0.1.16",
     "jsr:@gin/core@~0.1.18": "0.1.19",
     "jsr:@gin/core@~0.1.19": "0.1.19",
-    "jsr:@gin/helm-v1alpha1@*": "0.1.10",
-    "jsr:@gin/helm-v1alpha1@~0.1.6": "0.1.6",
+    "jsr:@gin/helm-v1alpha1@~0.1.10": "0.1.10",
+    "jsr:@gin/helm-v1alpha1@~0.1.6": "0.1.10",
     "jsr:@std/assert@^1.0.13": "1.0.13",
     "jsr:@std/cli@^1.0.19": "1.0.19",
     "jsr:@std/crypto@^1.0.5": "1.0.5",
@@ -20,31 +16,12 @@
     "npm:stacktracey@^2.1.8": "2.1.8"
   },
   "jsr": {
-    "@gin/argocd-v1alpha1@0.2.0": {
-      "integrity": "e618dd2f895197a367307ed9fb957cd9972f7a41adfb5127dfa3b415acaf9328",
-      "dependencies": [
-        "jsr:@gin/core@~0.1.16",
-        "jsr:@gin/helm-v1alpha1@~0.1.6"
-      ]
-    },
     "@gin/argocd-v1alpha1@0.2.3": {
       "integrity": "41f138720b2388228559ee8df86a9a7ae02f316c3fa0d164ea091bdc41818b80",
       "dependencies": [
-        "jsr:@gin/argocd-v1alpha1@~0.2.3",
+        "jsr:@gin/argocd-v1alpha1",
         "jsr:@gin/core@~0.1.18",
         "jsr:@gin/helm-v1alpha1@~0.1.6"
-      ]
-    },
-    "@gin/core@0.1.16": {
-      "integrity": "a0b8bf5fb62a3fe5644e9fc6fa6bbf3f1fd6c8e4bd2568051cd665cbd2c95eff",
-      "dependencies": [
-        "jsr:@std/assert",
-        "jsr:@std/cli",
-        "jsr:@std/crypto",
-        "jsr:@std/encoding",
-        "jsr:@std/regexp",
-        "jsr:@std/yaml",
-        "npm:stacktracey"
       ]
     },
     "@gin/core@0.1.19": {
@@ -57,16 +34,6 @@
         "jsr:@std/regexp",
         "jsr:@std/yaml",
         "npm:stacktracey"
-      ]
-    },
-    "@gin/helm-v1alpha1@0.1.6": {
-      "integrity": "92818978031107c7af994c01e7a000dc7fc6ea6392fb67549221f0f504095a54",
-      "dependencies": [
-        "jsr:@gin/core@~0.1.15",
-        "jsr:@std/assert",
-        "jsr:@std/crypto",
-        "jsr:@std/path",
-        "jsr:@std/yaml"
       ]
     },
     "@gin/helm-v1alpha1@0.1.10": {
@@ -135,7 +102,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@gin/argocd-v1alpha1@~0.2.3",
-      "jsr:@gin/core@~0.1.19"
+      "jsr:@gin/core@~0.1.19",
+      "jsr:@gin/helm-v1alpha1@~0.1.10"
     ]
   }
 }
