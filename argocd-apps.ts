@@ -19,6 +19,11 @@ new Gin().run(async (gin) => {
           name: entry.name.replace(/\.ts$/, ""),
           script: entry.name,
           repository: REPOSITORY,
+          deno: entry.name == "argocd-apps.ts"
+            ? {
+              allowRead: ["."],
+            }
+            : {},
         }),
       );
     }
