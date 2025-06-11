@@ -16,7 +16,7 @@ export default (gin: Gin) => {
   gin.emit(GinApplication({
     name: "argocd",
     script: "main.ts",
-    args: ["argocd-apps"],
+    args: ["argocd"],
     repository: REPOSITORY,
   }));
   gin.emit(GinApplication({
