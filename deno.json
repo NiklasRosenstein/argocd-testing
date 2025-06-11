@@ -3,6 +3,7 @@
     "dev": "deno run --watch main.ts"
   },
   "imports": {
-    "@gin/argocd-v1alpha1": "jsr:@gin/argocd-v1alpha1@^0.2.0"
+    "@gin/argocd-v1alpha1": "jsr:@gin/argocd-v1alpha1@^0.2.3",
+    "@gin/core": "jsr:@gin/core@^0.1.19"
   }
 }

@@ -2,8 +2,8 @@
  * Defines the ArgoCD deployment.
  */
 
-import { Gin } from "jsr:@gin/core";
-import { ArgoCDDeployment } from "jsr:@gin/argocd-v1alpha1";
+import { Gin } from "@gin/core";
+import { ArgoCDDeployment } from "@gin/argocd-v1alpha1";
 
 export default (gin: Gin) => {
   gin.emit<ArgoCDDeployment>({
