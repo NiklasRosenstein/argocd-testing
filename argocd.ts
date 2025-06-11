@@ -47,6 +47,7 @@ new Gin().run((gin) => {
           {
             name: "gin-v1",
             image: "ghcr.io/niklasrosenstein/gin/gin-argocd:latest", // Pin this to a specific version.
+            imagePullPolicy: "Always",
             env: {},
             secretEnv: {},
           },
