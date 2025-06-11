@@ -7,22 +7,20 @@ import { Gin } from "@gin/core";
 
 const REPOSITORY = "https://github.com/NiklasRosenstein/argocd-testing.git";
 
-new Gin().run((gin) => {
+new Gin().run(async (gin) => {
   gin.emit(
     GitRepository({ name: "my-repo", project: "default", url: REPOSITORY }),
   );
-  gin.emit(
-    GinApplication({
-      name: "argocd",
-      script: "argocd.ts",
-      repository: REPOSITORY,
-    }),
-  );
-  gin.emit(
-    GinApplication({
-      name: "argocd-apps",
-      script: "argocd-apps.ts",
-      repository: REPOSITORY,
-    }),
-  );
+
+  for await (const entry of Deno.readDir(".")) {
+    if (entry.isFile && entry.name.endsWith(".ts")) {
+      gin.emit(
+        GinApplication({
+          name: entry.name.replace(/\.ts$/, ""),
+          script: entry.name,
+          repository: REPOSITORY,
+        }),
+      );
+    }
+  }
 });
